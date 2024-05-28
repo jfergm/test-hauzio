@@ -20,7 +20,10 @@
       ></StoreCard>
     </div>
     <div class="container" v-if="section == Section.Add">
-      <h2>Add Store</h2>
+      <div class="add-header">
+        <h2>Add Store</h2>
+        <button @click="section = Section.List">X</button>
+      </div>
       <AddStore :location="location" @added-store="handleAddedStore($event)" />
     </div>
     <div class="container" v-if="section == Section.Update">
@@ -134,5 +137,18 @@ section {
 }
 h2 {
   text-align: start;
+}
+.add-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+button {
+  padding-inline: 1em;
+  padding-block: 0.5em;
+  background-color: white;
+  border: 1px solid #bbb;
+  border-radius: 5px;
 }
 </style>
