@@ -20,14 +20,17 @@
       ></StoreCard>
     </div>
     <div class="container" v-if="section == Section.Add">
-      <div class="add-header">
+      <div class="header">
         <h2>Add Store</h2>
         <button @click="section = Section.List">X</button>
       </div>
       <AddStore :location="location" @added-store="handleAddedStore($event)" />
     </div>
     <div class="container" v-if="section == Section.Update">
-      <h2>Update Store</h2>
+      <div class="header">
+        <h2>Update Store</h2>
+        <button @click="section = Section.List">X</button>
+      </div>
       <EditStore :store="store" @edited-store="handleEditedStore($event)" />
     </div>
   </section>
@@ -138,7 +141,7 @@ section {
 h2 {
   text-align: start;
 }
-.add-header {
+.header {
   display: flex;
   width: 100%;
   justify-content: space-between;
